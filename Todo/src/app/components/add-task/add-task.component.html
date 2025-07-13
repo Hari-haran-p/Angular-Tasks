@@ -1,0 +1,33 @@
+<div class="fixed inset-0 bg-black/50 flex justify-center items-center z-40">
+    <div class="bg-white rounded-2xl shadow-xl w-[90%] max-w-md p-6 relative">
+        <button (click)="onClose()" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl font-bold">
+            ×
+        </button>
+
+        <h2 class="text-2xl font-semibold text-center mb-4">Add Task</h2>
+
+        <form (ngSubmit)="handleSubmit()" class="flex flex-col gap-4">
+            <div>
+                <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+                <input [(ngModel)]="task.title" name="title" type="text" placeholder="Enter title"
+                    class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400" />
+            </div>
+            <div>
+                <label for="summary" class="block text-sm font-medium text-gray-700">Summary</label>
+                <textarea [(ngModel)]="task.summary" name="summary" rows="3" placeholder="Enter summary"
+                    class="w-full mt-1 p-2 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-purple-400"></textarea>
+            </div>
+            <div>
+                <label for="dueDate" class="block text-sm font-medium text-gray-700">Due Date</label>
+                <input [(ngModel)]="task.dueDate" name="dueDate" type="date"
+                    class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400" />
+            </div>
+            <div class="flex justify-end gap-3 pt-4">
+                <button type="button" (click)="onClose()"
+                    class="px-4 py-2 rounded-md bg-gray-300 text-gray-700 hover:bg-gray-400">Cancel</button>
+                <button type="submit"
+                    class="px-4 py-2 rounded-md bg-purple-600 text-white hover:bg-purple-700">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

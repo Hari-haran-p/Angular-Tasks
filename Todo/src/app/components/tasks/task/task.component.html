@@ -1,0 +1,11 @@
+<div class="w-92 rounded-2xl bg-purple-300 flex flex-col justify-center items-start">
+    <div class="flex flex-col justify-center items-start pl-3 pt-3 gap-2">
+        <div class="text-xl font-bold">{{task.title}}</div>
+        <div>{{task.dueDate}}</div>
+        <div>{{task.summary}}</div>
+    </div>
+    <div class="flex items-center py-2 pr-3 justify-end w-full">
+        <button (click)="handleComplete()" class="px-3 py-2 rounded-xl bg-purple-600 text-white cursor-pointer ">Complete</button>
+    </div>
+    
+</div>

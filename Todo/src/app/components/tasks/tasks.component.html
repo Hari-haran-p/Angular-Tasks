@@ -1,0 +1,14 @@
+<div class="w-full h-11/12 text-center rounded-2xl px-4 py-1 bg-purple-700">
+    <div class="flex justify-between items-center py-3">
+        <div class="text-white"> {{name}} </div>
+        <button (click)="onOpen()" class="px-3 py-2 rounded-xl bg-purple-600 text-white cursor-pointer">Add Task</button>
+    </div>
+    <div class="w-full h-10/12 rounded-2xl gap-4 flex flex-col justify-start items-center overflow-y-scroll ">
+        @for(task of tasks; track $index){
+            <app-task (completed)="handleCompleted($event)" [task]="task" />
+        }
+    </div>
+    @if(taskModal){
+        <app-add-task (newTask)="handleNewTask($event)" (close)="onClose()" />
+    }
+</div>
