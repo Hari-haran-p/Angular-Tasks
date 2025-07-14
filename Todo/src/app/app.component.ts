@@ -9,7 +9,7 @@ import { dummyTasks } from './components/tasks/tasks';
 
 @Component({
   selector: 'app-root',
-  imports: [UsersComponent, HeaderComponent, TasksComponent],
+  standalone: false,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

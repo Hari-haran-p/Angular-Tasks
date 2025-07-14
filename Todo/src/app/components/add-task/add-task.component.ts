@@ -4,7 +4,7 @@ import { Tasks } from '../tasks/tasks.modal';
 
 @Component({
   selector: 'app-add-task',
-  imports: [FormsModule],
+  standalone: false,
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.css'
 })

@@ -6,7 +6,7 @@ import { AddTaskComponent } from '../add-task/add-task.component';
 
 @Component({
   selector: 'app-tasks',
-  imports: [TaskComponent,AddTaskComponent],
+  standalone: false,
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css'
 })

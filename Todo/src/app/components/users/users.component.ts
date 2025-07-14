@@ -3,7 +3,7 @@ import { Users } from './users.modal';
 
 @Component({
   selector: 'app-users',
-  imports: [],
+  standalone: false,
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })
