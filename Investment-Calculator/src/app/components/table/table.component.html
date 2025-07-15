@@ -1,0 +1,67 @@
+@if(!filteredData || filteredData.length <= 0){
+    <div class="text-white">Please type the values and click the "Calculate"</div>
+}@else{
+<div class="w-full rounded-2xl">
+    <table class="w-[900px] ml-16 text-sm text-left text-gray-600 border border-gray-300 rounded-lg">
+      <thead class="bg-green-600 text-white rounded-2xl">
+        <tr>
+          <th class="px-4 py-3 w-[120px]">Year</th>
+          <th class="px-4 py-3 w-[180px]">Investment Value</th>
+          <th class="px-4 py-3 w-[150px]">Interest</th>
+          <th class="px-4 py-3 w-[180px]">Total Interest</th>
+          <th class="px-4 py-3 w-[200px]">Invested Capital</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200 bg-white">
+        @for (val of filteredData; track $index) {
+        <tr>
+          <td class="px-4 py-2 truncate" title="{{ val.year }}">{{ val.year }}</td>
+          <td class="px-4 py-2 truncate" title="{{ val.totalAmountInvested | currency }}">
+            {{ val.totalAmountInvested | currency }}
+          </td>
+          <td class="px-4 py-2 truncate" title="{{ val.interest | currency }}">
+            {{ val.interest | currency }}
+          </td>
+          <td class="px-4 py-2 truncate" title="{{ val.totalInterest | currency }}">
+            {{ val.totalInterest | currency }}
+          </td>
+          <td class="px-4 py-2 truncate" title="{{ val.valueEndOfYear | currency }}">
+            {{ val.valueEndOfYear | currency }}
+          </td>
+        </tr>
+        }
+      </tbody>
+  
+      <!-- Pagination Footer -->
+      <tfoot>
+        <tr>
+          <td colspan="5" class="bg-white px-4 py-3">
+            <div class="flex justify-between items-center w-full">
+              <!-- Rows Per Page Dropdown -->
+              <div class="flex items-center gap-2">
+                <label for="rowsPerPage" class="text-gray-700 font-medium">Rows per page:</label>
+                <select
+                  id="rowsPerPage"
+                  class="border border-gray-300 rounded px-2 py-1 text-sm"
+                  [(ngModel)]="rowsPerPage"
+                  (change)="onRowsPerPageChange($event)"
+                >
+                  <option [value]="5">5</option>
+                  <option [value]="10">10</option>
+                  <option [value]="20">20</option>
+                </select>
+              </div>
+  
+              <!-- Pagination Buttons -->
+              <div class="flex items-center gap-4">
+                <button (click)="onPrev()" class="px-4 py-1 bg-green-600 text-white rounded hover:bg-green-700">Previous</button>
+                <span class="text-gray-700 font-medium">Page {{page}} of {{totalPage}}</span>
+                <button (click)="onNext()" class="px-4 py-1 bg-green-600 text-white rounded hover:bg-green-700">Next</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+}
